@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class KelasController extends Controller
 {
     public function index()
     {
-        return view('home.index');
+        return view('kelas.index');
     }
 
     public function create()
     {
-        return view('home.create');
+        return view('kelas.create');
     }
 }

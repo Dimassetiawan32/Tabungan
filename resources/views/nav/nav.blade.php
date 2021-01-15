@@ -57,6 +57,7 @@
         </div>
     </div>
 </nav>
+
 <!-- Nav Sidebar -->
 <div class="container-fluid">
     <div class="row">
@@ -64,85 +65,61 @@
             <div class="sidebar-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                    <a class="nav-link active text-muted" href="">
-                        <h4 class="font-weight-bold">
-                            Home
-                        </h4> 
-                    </a>
+                        <a class="nav-link active text-muted" href="{{route('home.index')}}">
+                            <h4 class="font-weight-bold">
+                                Home
+                            </h4> 
+                        </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active text-muted" href="#">
-                        <h4 class="font-weight-bold">
-                            Data Kelas
-                        </h4> 
-                    </a>
+                        <a class="nav-link active text-muted" href="{{route('kelas.index')}}">
+                            <h4 class="font-weight-bold">
+                                Data Kelas
+                            </h4> 
+                        </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active text-muted" href="#">
-                        <h4 class="font-weight-bold">
-                            Data Nasabah
-                        </h4> 
-                    </a>
+                        <a class="nav-link active text-muted" href="{{route('nasabah.index')}}">
+                            <h4 class="font-weight-bold">
+                                Data Nasabah
+                            </h4> 
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-muted" href=""  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <h4 class="font-weight-bold">
+                                Transaksi
+                            </h4> 
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{route('transaksi.setor.index')}}">
+                                <h5 class="text-muted">
+                                    Setor Tunai
+                                </h5 > 
+                            </a>
+                            <a class="dropdown-item" href="{{route('transaksi.penarikan.index')}}">
+                                <h5 class="text-muted">
+                                    Penarikan
+                                </h5> 
+                            </a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active text-muted" href="#">
-                        <h4 class="font-weight-bold">
-                            Transaksi
-                        </h4> 
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link active text-muted" href="#">
-                        <h4 class="font-weight-bold">
-                            Laporan
-                        </h4> 
-                    </a>
+                        <a class="nav-link active text-muted" href="">
+                            <h4 class="font-weight-bold"> 
+                                Laporan
+                            </h4> 
+                        </a>
                     </li>
                 </ul>
             </div>
         </nav>
+        
         <!-- Main Content -->
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 mb-2">
-                <h1 class="h2">Home</h1>             
-            </div>
-            <div class="card border-0 shadow">
-                <div class="card-body bg-warning">
-                    <h4 class="font-weight-bold">Welcome !</h4>
-                    <h6>Hey selamat datang kembali di aplikasi Tabungan Siswa. Ada yang bisa kami bantu?</h6>
-                </div>
-            </div>
-            <div class="container pt-4">
-                <div class="row d-flex pt-4">
-                    <h1 class="h2">Data Petugas</h1>
-                </div>
-            </div>        
-            <a href="" class="btn btn-warning">Tambah Petugas</a>
-            <div class="container">
-                <div class="row d-flex pt-2">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Level</th>
-                                <th>Option</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>1234567</th>
-                                <th>Rachmat Ababil</th>
-                                <th>Admin</th>
-                                <th>
-                                    <a href="" class="btn btn-primary">Detail</a>
-                                    <a href="" class="btn btn-danger">Hapus</a>
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </main>
+        <div class="col-md-8">
+            <main class="py-4">
+                @yield('content')
+            </main>
+        </div>
     </div>
 </div>
