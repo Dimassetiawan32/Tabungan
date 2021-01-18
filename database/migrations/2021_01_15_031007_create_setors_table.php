@@ -15,6 +15,12 @@ class CreateSetorsTable extends Migration
     {
         Schema::create('setors', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('id_transaksi');
+            $table->string('alamat');
+            $table->string('notelp');
+            $table->string('nama_ortu');
+            $table->string('saldo');
+            $table->string('jumlah_transfer');
             $table->timestamps();
         });
     }
