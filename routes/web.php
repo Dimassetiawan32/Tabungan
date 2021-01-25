@@ -22,19 +22,28 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'dashboard'], function(){
     Route::get('index', 'DashboardController@index')->name('home.index');
     Route::get('create', 'DashboardController@create')->name('home.create');
+    Route::post('save', 'DashboardController@store')->name('home.save');
 });
 
 Route::group(['prefix' => 'kelas'], function(){
     Route::get('index', 'KelasController@index')->name('kelas.index');
     Route::get('create', 'KelasController@create')->name('kelas.create');
+    Route::post('save', 'KelasController@store')->name('kelas.save');
 });
 
 Route::group(['prefix' => 'nasabah'], function(){
     Route::get('index', 'NasabahController@index')->name('nasabah.index');
+    Route::get('create', 'NasabahController@create')->name('nasabah.create');
+    Route::post('save', 'NasabahController@store')->name('nasabah.save');
 });
 
-Route::group(['prefix' => 'transaksi'], function(){
-    Route::get('index', 'TransaksiController@index')->name('transaksi.setor.index');
-    Route::get('index2', 'TransaksiController@index2')->name('transaksi.penarikan.index');
+Route::group(['prefix' => 'setor'], function(){
+    Route::get('index', 'SetorController@index')->name('transaksi.setor.index');
+    Route::get('formSetor', 'SetorController@create')->name('transaksi.setor.formStore');
+});
+
+Route::group(['prefix' => 'tarik'], function(){
+    Route::get('index', 'TarikController@index')->name('transaksi.penarikan.index');
+    Route::get('formTarik', 'TarikController@create')->name('transaksi.penarikan.formTarik');
 });
 

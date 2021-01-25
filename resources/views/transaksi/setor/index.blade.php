@@ -2,18 +2,34 @@
 
 @section('content')
 <div class="container">
-    <div class="row d-flex justify-content-center">
-        <h2>Setor Tunai</h2>
+    <div class="row">
+            <h2>Setor Tunai</h2>
+        </div>
     </div>
     <div class="container">
-        <div class="row d-flex justify-content-center pt-2">
-            <h5 class="font-weight-bold pt-1">
-                No. Rekening
-            </h5>
-            <div class="col-md-6">
-                <input type="text" name="" class="form-control" value="Masukkan Nomor Rekening" id="">
-            </div>
-            <a href="" class="btn btn-warning">Cari</a>
+        <div class="row d-flex pt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Kode Nasabah</th>
+                        <th>No Rek</th>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Telp</th>
+                        <th>Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NB 000001</td>
+                        <td>12345678</td>
+                        <td>Melody JKT 29</td>
+                        <td>XII - AK</td>
+                        <td>089312312</td>
+                        <td> <a href="{{route('transaksi.setor.formStore')}}" class="btn btn-outline-primary btn-sm">Setor</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

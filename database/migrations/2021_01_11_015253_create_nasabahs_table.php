@@ -18,6 +18,7 @@ class CreateNasabahsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('kode_nasabah')->unique();
             $table->string('norek')->unique();
+            $table->string('nama');
             $table->string('kelas');
             $table->string('alamat');
             $table->string('ttl');

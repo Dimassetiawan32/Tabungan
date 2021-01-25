@@ -8,7 +8,7 @@
     </div>
     <a href="" class="btn btn-warning">Aktif</a>
     <a href="" class="btn btn-outline-warning">Non aktif</a>
-    <a href="" class="btn btn-warning" style="float: right;">Tambah Nasabah</a>
+    <a href="{{route('nasabah.create')}}" class="btn btn-warning" style="float: right;">Tambah Nasabah</a>
     <div class="container">
         <div class="row d-flex pt-3">
             <table class="table">
