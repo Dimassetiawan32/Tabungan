@@ -21,8 +21,8 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>Kode Petugas</th>
                                 <th>Nama</th>
-                                <th>Email</th>
                                 <th>Level</th>
                                 <th>Option</th>
                             </tr>

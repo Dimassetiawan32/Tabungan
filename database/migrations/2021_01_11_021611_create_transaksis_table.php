@@ -15,11 +15,9 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedinteger('nasabah_id');
-            $table->string('tarik_id');
-            $table->string('setor_id');
-            $table->string('tanggal');
-            $table->string('keterangan');
+            $table->unsignedInteger('nasabah_id');
+            $table->unsignedInteger('tarik_id');
+            $table->unsignedInteger('setor_id');
             $table->timestamps();
         });
     }

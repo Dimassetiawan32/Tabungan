@@ -14,7 +14,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>ID Nasabah</th>
+                        <th>Kode Nasabah</th>
                         <th>No Rek</th>
                         <th>Nama</th>
                         <th>Kelas</th>

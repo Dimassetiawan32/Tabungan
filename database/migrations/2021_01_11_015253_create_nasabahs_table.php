@@ -15,11 +15,10 @@ class CreateNasabahsTable extends Migration
     {
         Schema::create('nasabahs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('id_nasabah')->unique();
+            $table->unsignedInteger('user_id');
+            $table->string('kode_nasabah')->unique();
             $table->string('norek')->unique();
-            $table->string('nama');
             $table->string('kelas');
-            $table->string('saldo');
             $table->string('alamat');
             $table->string('ttl');
             $table->string('jenis_kelamin');

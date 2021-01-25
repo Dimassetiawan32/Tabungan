@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Id Petugas</label>
+                                    <label for="">Kode Petugas</label>
                                     <input type="text" name="" class="form-control" id="">
                                 </div>
                             </div>
@@ -25,19 +25,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input type="text" name="" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label for="">level</label>
                                     <input type="text" name="" class="form-control" id="">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Alamat</label>
+                                    <label for="">Jabatan</label>
                                     <input type="text" name="" class="form-control" id="">
                                 </div>
                             </div>
@@ -53,8 +47,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Tanggal Masuk</label>
-                                    <input type="date" name="" class="form-control" id="">
+                                    <label for="">Alamat</label>
+                                    <input type="text" name="" class="form-control" id="">
                                 </div>
                             </div>
                             <div class="col-md-6">
