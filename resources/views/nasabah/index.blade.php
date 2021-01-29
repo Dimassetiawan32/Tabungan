@@ -23,16 +23,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($nasabahs as $nasabah)
                     <tr>
                         <td>
-                            <a href="" class="btn btn-outline-success btn-sm">NB 000001</a>
+                            <a href="" class="btn btn-outline-success btn-sm">{{$nasabah->kode_nasabah}}</a>
                         </td>
-                        <td>12345678</td>
-                        <td>Melody JKT 29</td>
-                        <td>XII - AK</td>
-                        <td>089312312</td>
-                        <td>Rendy Orton</td>
+                        <td>{{$nasabah->norek}}</td>
+                        <td>{{$nasabah->nama}}</td>
+                        <td>{{$nasabah->kelas}}</td>
+                        <td>{{$nasabah->telp}}</td>
+                        <td>{{$nasabah->nama_ortu}}</td>
                     </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

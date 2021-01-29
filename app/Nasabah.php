@@ -8,7 +8,7 @@ class Nasabah extends Model
 {
     protected $table = 'nasabahs';
     protected $guarded = [];
-
+    protected $primaryKey = 'userId';
 
     public function generatecode()
     {
@@ -27,6 +27,6 @@ class Nasabah extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

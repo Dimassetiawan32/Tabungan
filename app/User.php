@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function nasabah()
     {
-        return $this->hasMany(Nasabah::class);
+        return $this->hasOne(Nasabah::class);
     }
 }

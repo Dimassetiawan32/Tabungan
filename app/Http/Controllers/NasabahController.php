@@ -21,8 +21,9 @@ class NasabahController extends Controller
 
     public function create()
     {
+        $users = User::all();
         $getKode = $this->nasabah->generateCode();
-        return view("nasabah.create", compact('getKode'));
+        return view('nasabah.create', compact('getKode','users'));
     }
 
     public function store(Request $request)
@@ -40,11 +41,12 @@ class NasabahController extends Controller
             'nama_ortu'     => 'required',
         ]);
 
-        $petugass = Petugas::create([
-            'user_id'       => $request->auth()->user()->id,
+        $nasabahs = Nasabah::create([
+            'user_id'       => $request->id,
             'Kode_nasabah'  => $request->kode_nasabah,
+            'norek'         => $request->norek,
             'nama'          => $request->nama,
-            'kelas'         => $request->kelA,
+            'kelas'         => $request->kelas,
             'alamat'        => $request->alamat,
             'ttl'           => $request->ttl,
             'jenis_kelamin' => $request->jenis_kelamin,
