@@ -21,14 +21,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($nasabahs as $nasabah)
                     <tr>
-                        <td>NB 000001</td>
-                        <td>12345678</td>
-                        <td>Melody JKT 29</td>
-                        <td>XII - AK</td>
-                        <td>089312312</td>
+                        <td>{{$nasabah->kode_nasabah}}</td>
+                        <td>{{$nasabah->norek}}</td>
+                        <td>{{$nasabah->nama}}</td>
+                        <td>{{$nasabah->kelas}}</td>
+                        <td>{{$nasabah->telp}}</td>
                         <td> <a href="{{route('transaksi.penarikan.formTarik')}}" class="btn btn-outline-primary btn-sm">Tarik</a></td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

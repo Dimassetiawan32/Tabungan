@@ -19,20 +19,20 @@
                         <th>Nama</th>
                         <th>Kelas</th>
                         <th>Telp</th>
-                        <th>Nama Orang Tua</th>
+                        <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach($nasabahs as $nasabah)
                     <tr>
                         <td>
-                            <a href="" class="btn btn-outline-success btn-sm">{{$nasabah->kode_nasabah}}</a>
+                            <a href="{{route('nasabah.formEdit', $nasabah->id)}}"  class="btn btn-outline-success btn-sm">{{$nasabah->kode_nasabah}}</a>
                         </td>
                         <td>{{$nasabah->norek}}</td>
                         <td>{{$nasabah->nama}}</td>
                         <td>{{$nasabah->kelas}}</td>
                         <td>{{$nasabah->telp}}</td>
-                        <td>{{$nasabah->nama_ortu}}</td>
+                        <td><a href="" class="btn btn-danger btn-sm">Delete</a></td>
                     </tr>
                 @endforeach
                 </tbody>

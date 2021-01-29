@@ -23,18 +23,27 @@ Route::group(['prefix' => 'dashboard'], function(){
     Route::get('index', 'DashboardController@index')->name('home.index');
     Route::get('create', 'DashboardController@create')->name('home.create');
     Route::post('save', 'DashboardController@store')->name('home.save');
+    Route::get('formEdit/{dashboard}', 'DashboardController@edit')->name('home.formEdit');
+    Route::patch('update/{dashboard}', 'DashboardController@update')->name('home.update');
+    Route::delete('delete/{dashboard}', 'DashboardController@destroy')->name('home.delete');
 });
 
 Route::group(['prefix' => 'kelas'], function(){
     Route::get('index', 'KelasController@index')->name('kelas.index');
     Route::get('create', 'KelasController@create')->name('kelas.create');
     Route::post('save', 'KelasController@store')->name('kelas.save');
+    Route::get('formEdit/{kelas}', 'KelasController@edit')->name('kelas.formEdit');
+    Route::patch('update/{kelas}', 'KelasController@update')->name('kelas.update');
+    Route::delete('delete/{kelas}', 'KelasController@destroy')->name('kelas.delete');
 });
 
 Route::group(['prefix' => 'nasabah'], function(){
     Route::get('index', 'NasabahController@index')->name('nasabah.index');
     Route::get('create', 'NasabahController@create')->name('nasabah.create');
     Route::post('save', 'NasabahController@store')->name('nasabah.save');
+    Route::get('formEdit/{nasabah}', 'NasabahController@edit')->name('nasabah.formEdit');
+    Route::patch('update/{nasabah}', 'NasabahController@update')->name('nasabah.update');
+    Route::delete('delete/{nasabah}', 'NasabahController@destroy')->name('nasabah.delete');
 });
 
 Route::group(['prefix' => 'setor'], function(){

@@ -9,6 +9,12 @@
     <a href="{{route('kelas.create')}}" class="btn btn-warning btn-sm">Tambah Kelas</a>
     <div class="container">
         <div class="row d-flex pt-3">
+        @csrf
+        @if(session('success'))
+            <div class="alert alert-danger">
+                {{ session('success')}}
+            </div>
+        @endif
             <table class="table">
                 <thead>
                     <tr>
@@ -25,8 +31,12 @@
                         <td>{{$Kelas->jurusan}}</td>
                         <td>{{$Kelas->kapasitas}}</td>
                         <td>
-                            <a href="" class="btn btn-info btn-sm">Edit</a>
-                            <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                            <form action="{{route('kelas.delete', $Kelas->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <a href="{{route('kelas.formEdit', $Kelas->id)}}" class="btn btn-primary btn-sm">Edit</a>
+                                <button href="" class="btn btn-danger btn-sm">Hapus</button>
+                            </form>
                         </td>
                     </tr>
                 </tbody>

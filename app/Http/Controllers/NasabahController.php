@@ -57,4 +57,24 @@ class NasabahController extends Controller
         $nasabahs->save();
         return redirect()->back()->with(['success' => 'Nasabah Berhasil Ditambahkan']);
     }
+
+    public function edit($id)
+    {
+        $nasabah = Nasabah::findOrFail($id);
+        return view('nasabah.edit', compact('nasabah'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $nasabah = Nasabah::find($id);
+        $nasabah->update($request->all());
+        return redirect()->back()->with(['success' => 'Nasabah Berhasil Diperbarui']);
+    }
+
+    public function destroy($id)
+    {
+        $nasabah = Nasabah::find($id);
+        $nasabah->delete($nasabah->all());
+        return redirect()->back()->with(['success' => 'Nasabah Berhasil DiHapus']);
+    }
 }

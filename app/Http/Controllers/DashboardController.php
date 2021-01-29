@@ -48,4 +48,24 @@ class DashboardController extends Controller
         $petugass->save();
         return redirect()->back()->with(['success' => 'Petugas Berhasil Ditambahkan']);
     }
+
+    public function edit($id)
+    {
+        $petugas = Petugas::findOrFail($id);
+        return view('home.edit', compact('petugas'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $petugas = Petugas::find($id);
+        $petugas->update($request->all());
+        return redirect()->back()->with(['success' => 'Data Petugas Berhasil Diperbarui']);
+    }
+
+    public function destroy($id)
+    {
+        $petugas = Petugas::find($id);
+        $petugas->delete($petugas->all());
+        return redirect()->back()->with(['success' => 'Data Petugas Berhasil DiHapus']);
+    }
 }

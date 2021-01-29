@@ -8,7 +8,7 @@ class Nasabah extends Model
 {
     protected $table = 'nasabahs';
     protected $guarded = [];
-    protected $primaryKey = 'userId';
+    protected $primaryKey = 'user_id';
 
     public function generatecode()
     {

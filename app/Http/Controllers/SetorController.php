@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Nasabah;
 use Illuminate\Http\Request;
 
 class SetorController extends Controller
 {
     public function index()
     {
-        return view('transaksi.setor.index');
+        $nasabahs = Nasabah::all();
+        return view('transaksi.setor.index', compact('nasabahs'));
     }
 
     public function create()

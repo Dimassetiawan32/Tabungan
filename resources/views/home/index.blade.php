@@ -18,6 +18,14 @@
 <a href="{{route('home.create')}}" class="btn btn-warning btn-sm">Tambah Petugas</a>
 <div class="container">
     <div class="row d-flex pt-4">
+    @csrf
+    @if(session('success'))
+    <div class="d-flex justify-content-center">
+        <div class="alert alert-danger">
+            {{ session('success')}}
+        </div>
+    </div>
+    @endif
         <table class="table">
             <thead>
                 <tr>
@@ -34,8 +42,12 @@
                     <td>{{$petugas->nama}}</td>
                     <td>{{$petugas->level}}</td>
                     <td>
-                        <a href="" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                        <form action="{{route('home.delete', $petugas->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <a href="{{route('home.formEdit', $petugas->id)}}" class="btn btn-primary btn-sm">Edit</a>
+                            <button href="" class="btn btn-danger btn-sm">Hapus</button>
+                        </form>
                     </td>
                 </tr>
             </tbody>
