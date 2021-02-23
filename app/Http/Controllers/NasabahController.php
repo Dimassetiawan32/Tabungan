@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
+
 use App\Nasabah;
 use Illuminate\Http\Request;
 
@@ -21,15 +21,14 @@ class NasabahController extends Controller
 
     public function create()
     {
-        $users = User::all();
+        
         $getKode = $this->nasabah->generateCode();
-        return view('nasabah.create', compact('getKode','users'));
+        return view('nasabah.create', compact('getKode'));
     }
 
     public function store(Request $request)
     {
         $this->validate($request,[
-            'user_id'       => 'required',
             'kode_nasabah'  => 'required',
             'norek'         => 'required',
             'nama'          => 'required',
@@ -42,7 +41,6 @@ class NasabahController extends Controller
         ]);
 
         $nasabahs = Nasabah::create([
-            'user_id'       => $request->id,
             'Kode_nasabah'  => $request->kode_nasabah,
             'norek'         => $request->norek,
             'nama'          => $request->nama,
@@ -60,6 +58,7 @@ class NasabahController extends Controller
 
     public function edit($id)
     {
+       
         $nasabah = Nasabah::findOrFail($id);
         return view('nasabah.edit', compact('nasabah'));
     }

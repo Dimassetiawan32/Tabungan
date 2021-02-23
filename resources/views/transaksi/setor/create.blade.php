@@ -6,61 +6,44 @@
         <div class="col-md-12">
             <div class="card border-0 shadow">
                 <div class="card-body">
-                    <form action="">
+                    <form action="{{route('transaksi.setor.save')}}" enctype="multipart/form-data" method="POST">
                     <div class="mb-3">
                         <h5 class="text-muted">Form Setor Tunai</h5>
                     </div>
+                        @csrf
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success')}}
+                            </div>
+                        @endif
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Kode Transaksi</label>
-                                    <input type="text" name="" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="">Kode Nasabah</label>
-                                    <input type="text" name="" class="form-control" id="">
+                                    <input type="text" name="kode_transaksi" class="form-control" value="{{$getKode}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Nama Nasabah</label>
-                                    <input type="text" name="" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="">TTL</label>
-                                    <input type="text" name="" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="">Alamat</label>
-                                    <input type="text" name="" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="">Telepon</label>
-                                    <input type="number" name="" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="">Saldo</label>
-                                    <input type="text" name="" class="form-control" id="">
+                                    <select name="nasabah_id" id="" class="form-control">
+                                        <option value="">Pilih Nasabah</option>
+                                        @foreach($nasabahs as $nasabah)
+                                            <option value="{{$nasabah->id}}">{{$nasabah->nama}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Jumlah Transfer</label>
-                                    <input type="number" name="" class="form-control" id="">
+                                    <input type="number" name="jumlah_transfer" class="form-control" id="">
                                 </div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-warning btn-sm" style="float: right;">Setor</a>
+                        <a href="{{route('transaksi.setor.index')}}" class="btn btn-success btn-sm">Back</a>
+                        <button type="submit" class="btn btn-primary btn-sm" style="float: right;">Save</button>
+                        
                     </form>
                 </div>
             </div>

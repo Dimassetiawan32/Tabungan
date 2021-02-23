@@ -16,7 +16,7 @@ class CreateTariksTable extends Migration
         Schema::create('tariks', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('nasabah_id');
-            $table->unsignedInteger('simpan_id');
+            $table->string('kode_transaksi');
             $table->string('jumlah_tarik');
             $table->timestamps();
         });

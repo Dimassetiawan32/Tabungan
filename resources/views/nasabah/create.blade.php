@@ -19,16 +19,6 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Id User</label>
-                                    <select name="user_id" id="" class="form-control">
-                                        @foreach($users as $user)
-                                            <option value="{{$user->id}}">{{$user->id}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
                                     <label for="">Kode Nasabah</label>
                                     <input type="text" name="kode_nasabah" class="form-control" value="{{$getKode}}" id="">
                                 </div>

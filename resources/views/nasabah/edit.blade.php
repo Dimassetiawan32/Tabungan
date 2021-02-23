@@ -20,16 +20,6 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Id User</label>
-                                    <select name="user_id" id="" class="form-control">
-                                        @foreach($users as $user)
-                                            <option value="{{$user->id}}">{{$user->id}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
                                     <label for="">Kode Nasabah</label>
                                     <input type="text" name="kode_nasabah" class="form-control" value="{{$nasabah->kode_nasabah}}" id="">
                                 </div>
@@ -37,31 +27,31 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Nomor Rekening</label>
-                                    <input type="text" name="norek" class="form-control"  id="">
+                                    <input type="text" name="norek" class="form-control" value="{{$nasabah->norek}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Nama</label>
-                                    <input type="text" name="nama" class="form-control" id="">
+                                    <input type="text" name="nama" class="form-control" value="{{$nasabah->nama}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">kelas</label>
-                                    <input type="text" name="kelas" class="form-control" id="">
+                                    <input type="text" name="kelas" class="form-control" value="{{$nasabah->kelas}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">alamat</label>
-                                    <input type="text" name="alamat" class="form-control" id="">
+                                    <input type="text" name="alamat" class="form-control" value="{{$nasabah->alamat}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Tempat Tanggal Lahir</label>
-                                    <input type="text" name="ttl" class="form-control" id="">
+                                    <input type="text" name="ttl" class="form-control" value="{{$nasabah->ttl}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -77,13 +67,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Telepon</label>
-                                    <input type="number" name="telp" class="form-control" id="">
+                                    <input type="number" name="telp" class="form-control" value="{{$nasabah->telp}}" id="">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Nama Orang Tua</label>
-                                    <input type="text" name="nama_ortu" class="form-control" id="">
+                                    <input type="text" name="nama_ortu" class="form-control" value="{{$nasabah->nama_ortu}}" id="">
                                 </div>
                             </div>
                         </div>

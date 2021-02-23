@@ -1,18 +1,18 @@
 <?php
 
 namespace App;
-use App\User;
+
 use Illuminate\Database\Eloquent\Model;
 
-class Nasabah extends Model
+class Tarik extends Model
 {
-    protected $table = 'nasabahs';
+    protected $table = 'tariks';
     protected $guarded = [];
     
     public function generatecode()
     {
-        $_kode       = "NB ";
-        $kode = Nasabah::where('kode_nasabah', 'NB ')->orderBy('kode_nasabah');
+        $_kode       = "TS ";
+        $kode = Tarik::where('kode_transaksi', 'TS ')->orderBy('kode_transaksi');
         $kode = $kode->count();
         if($kode == 0){
         $kode = $_kode."000001";
@@ -24,13 +24,8 @@ class Nasabah extends Model
         return $kode;
     }
 
-    public function setor()
+    public function nasabah()
     {
-        return $this->hasMany(Setor::class);
-    }
-
-    public function tarik()
-    {
-        return $this->hasMany(Tarik::class);
+        return $this->belongsTo(Nasabah::class);
     }
 }

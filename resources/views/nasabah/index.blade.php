@@ -11,6 +11,12 @@
     <a href="{{route('nasabah.create')}}" class="btn btn-warning" style="float: right;">Tambah Nasabah</a>
     <div class="container">
         <div class="row d-flex pt-3">
+            @csrf
+            @if(session('success'))
+                <div class="alert alert-danger">
+                    {{ session('success')}}
+                </div>
+            @endif
             <table class="table">
                 <thead>
                     <tr>
@@ -32,7 +38,13 @@
                         <td>{{$nasabah->nama}}</td>
                         <td>{{$nasabah->kelas}}</td>
                         <td>{{$nasabah->telp}}</td>
-                        <td><a href="" class="btn btn-danger btn-sm">Delete</a></td>
+                        <td> 
+                        <form action="{{route('nasabah.delete', $nasabah->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-outline-danger btn-sm" href="">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

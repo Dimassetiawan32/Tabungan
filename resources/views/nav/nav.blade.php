@@ -104,13 +104,6 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-muted" href="">
-                            <h4 class="font-weight-bold"> 
-                                Laporan
-                            </h4> 
-                        </a>
-                    </li>
                 </ul>
             </div>
         </nav>

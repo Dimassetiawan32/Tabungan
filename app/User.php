@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Nasabah;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -37,8 +37,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function nasabah()
-    {
-        return $this->hasMany(Nasabah::class);
-    }
 }

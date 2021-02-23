@@ -49,10 +49,18 @@ Route::group(['prefix' => 'nasabah'], function(){
 Route::group(['prefix' => 'setor'], function(){
     Route::get('index', 'SetorController@index')->name('transaksi.setor.index');
     Route::get('formSetor', 'SetorController@create')->name('transaksi.setor.formStore');
+    Route::post('save', 'SetorController@store')->name('transaksi.setor.save');
+    Route::get('formEdit/{setor}', 'SetorController@edit')->name('transaksi.setor.formEdit');
+    Route::patch('update/{setor}', 'SetorController@update')->name('transaksi.setor.update');
+    Route::delete('delete/{setor}', 'SetorController@destroy')->name('transaksi.setor.delete');
 });
 
 Route::group(['prefix' => 'tarik'], function(){
     Route::get('index', 'TarikController@index')->name('transaksi.penarikan.index');
     Route::get('formTarik', 'TarikController@create')->name('transaksi.penarikan.formTarik');
+    Route::post('save', 'TarikController@store')->name('transaksi.penarikan.save');
+    Route::get('formEdit/{tarik}', 'TarikController@edit')->name('transaksi.penarikan.formEdit');
+    Route::patch('update/{tarik}', 'TarikController@update')->name('transaksi.penarikan.update');
+    Route::delete('delete/{tarik}', 'TarikController@destroy')->name('transaksi.penarikan.delete');
 });
 

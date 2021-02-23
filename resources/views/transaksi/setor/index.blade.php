@@ -6,8 +6,15 @@
             <h2>Setor Tunai</h2>
         </div>
     </div>
+    <a href="{{route('transaksi.setor.formStore')}}" class="btn btn-outline-primary btn-sm">Setor</a>
     <div class="container">
-        <div class="row d-flex pt-3">
+        <div class="row d-flex pt-2">
+            @csrf
+            @if(session('success'))
+                <div class="alert alert-danger">
+                    {{ session('success')}}
+                </div>
+            @endif
             <table class="table">
                 <thead>
                     <tr>
@@ -15,21 +22,28 @@
                         <th>No Rek</th>
                         <th>Nama</th>
                         <th>Kelas</th>
-                        <th>Telp</th>
+                        <th>Saldo</th>
                         <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($nasabahs as $nasabah)
+                    @foreach($setors as $setor)
                     <tr>
-                        <td>{{$nasabah->kode_nasabah}}</td>
-                        <td>{{$nasabah->norek}}</td>
-                        <td>{{$nasabah->nama}}</td>
-                        <td>{{$nasabah->kelas}}</td>
-                        <td>{{$nasabah->telp}}</td>
-                        <td> <a href="{{route('transaksi.setor.formStore')}}" class="btn btn-outline-primary btn-sm">Setor</a></td>
+                        <td>{{$setor->nasabah->kode_nasabah}}</td>
+                        <td>{{$setor->nasabah->norek}}</td>
+                        <td>{{$setor->nasabah->nama}}</td>
+                        <td>{{$setor->nasabah->kelas}}</td>
+                        <td>RP. {{$setor->jumlah_transfer}}</td>
+                        <td> 
+                            <form action="{{route('transaksi.setor.delete', $setor->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <a href="{{route('transaksi.setor.formEdit', $setor->id)}}" class="btn btn-primary btn-sm">Edit</a>
+                                <button href="" class="btn btn-danger btn-sm">Hapus</button>
+                            </form>
+                        </td>
                     </tr>
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -18,7 +18,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Nama Kelas</th>
+                        <th>Kelas</th>
                         <th>Jurusan</th>
                         <th>Kapasitas</th>
                         <th>Option</th>
