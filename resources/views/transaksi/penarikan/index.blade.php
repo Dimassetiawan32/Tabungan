@@ -10,15 +10,10 @@
     <div class="container">
         <div class="row d-flex pt-2">
             @csrf
-            @if(session('success'))
-                <div class="alert alert-danger">
-                    {{ session('success')}}
-                </div>
-            @endif
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Kode Nasabah</th>
+                        <th>Kode Transaksi</th>
                         <th>No Rek</th>
                         <th>Nama</th>
                         <th>Kelas</th>
@@ -27,9 +22,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($tariks as $tarik)
+                    @forelse($tariks as $tarik)
                     <tr>
-                        <td>{{$tarik->nasabah->kode_nasabah}}</td>
+                        <td>{{$tarik->kode_transaksi}}</td>
                         <td>{{$tarik->nasabah->norek}}</td>
                         <td>{{$tarik->nasabah->nama}}</td>
                         <td>{{$tarik->nasabah->kelas}}</td>
@@ -43,9 +38,16 @@
                             </form>
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="8" class="text-center">
+                            Maaf Data Belum Tersedia. <a href="{{route('transaksi.penarikan.formTarik')}}">Tekan Disini Untuk menambahkan</a> 
+                        </td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
+            {{ $tariks->links() }}
         </div>
     </div>
 </div>

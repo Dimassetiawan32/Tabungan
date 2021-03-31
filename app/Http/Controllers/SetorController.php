@@ -1,47 +1,39 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Kelas;
 use App\Nasabah;
 use App\Setor;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SetorController extends Controller
-{
-    public function __construct()
-    {
-        $this->setor = new Setor ();
-    }
-
+{ 
     public function index()
     {
-        $nasabahs = Nasabah::all();
-        $setors = Setor::all();
-        return view('transaksi.setor.index', compact('nasabahs','setors'));
+        $kelass = Kelas::paginate(3);
+        $nasabahs = Nasabah::paginate(3);
+        $setors = Setor::paginate(3);
+        return view('transaksi.setor.index', compact('kelass','nasabahs','setors'));
     }
 
     public function create()
     {
         $nasabahs = Nasabah::all();
-        $getKode = $this->setor->generateCode();
-        return view('transaksi.setor.create', compact('nasabahs','getKode'));
+        return view('transaksi.setor.create', compact('nasabahs'));
     }
 
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'nasabah_id'        => 'required',
-            'kode_transaksi'    => 'required',
-            'jumlah_transfer'   => 'required',
-        ]);
-
         $setors = Setor::create([
             'nasabah_id'        => $request->nasabah_id,
-            'Kode_transaksi'    => $request->kode_transaksi,
             'jumlah_transfer'   => $request->jumlah_transfer,
         ]);
 
         $setors->save();
-        return redirect()->back()->with(['success' => 'Transaksi Berhasil']);
+        toast('Transaksi Berhasil','success');
+        return redirect('setor/index');
     }
 
     public function edit($id)
@@ -55,13 +47,15 @@ class SetorController extends Controller
     {
         $setor = Setor::find($id);
         $setor->update($request->all());
-        return redirect()->back()->with(['success' => 'Transaksi Berhasil Diperbarui']);
+        toast('Transaksi Berhasil Diperbarui','success');
+        return redirect('setor/index');
     }
 
     public function destroy($id)
     {
         $setor = Setor::find($id);
         $setor->delete($setor->all());
-        return redirect()->back()->with(['success' => 'Transaksi Berhasil DiHapus']);
+        toast('Transaksi Berhasil Dihapus','success');
+        return redirect('setor/index');
     }
 }

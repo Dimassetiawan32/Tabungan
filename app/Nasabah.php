@@ -1,27 +1,30 @@
 <?php
 
 namespace App;
-use App\User;
+
 use Illuminate\Database\Eloquent\Model;
+use Alfa6661\AutoNumber\AutoNumberTrait;
 
 class Nasabah extends Model
 {
+    use AutoNumberTrait;
+
     protected $table = 'nasabahs';
     protected $guarded = [];
     
-    public function generatecode()
+    public function getAutoNumberOptions()
     {
-        $_kode       = "NB ";
-        $kode = Nasabah::where('kode_nasabah', 'NB ')->orderBy('kode_nasabah');
-        $kode = $kode->count();
-        if($kode == 0){
-        $kode = $_kode."000001";
-    }else
-    {
-        $last = $kode+1;
-        $kode = "$_kode".str_pad($last, 3, '0', STR_PAD_LEFT);
+        return [
+            'kode_nasabah' => [
+                'format' => 'NB 0?', // autonumber format. '?' will be replaced with the generated number.
+                'length' => 5 // The number of digits in an autonumber
+            ]
+        ];
     }
-        return $kode;
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
     }
 
     public function setor()

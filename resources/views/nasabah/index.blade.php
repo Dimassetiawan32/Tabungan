@@ -12,11 +12,6 @@
     <div class="container">
         <div class="row d-flex pt-3">
             @csrf
-            @if(session('success'))
-                <div class="alert alert-danger">
-                    {{ session('success')}}
-                </div>
-            @endif
             <table class="table">
                 <thead>
                     <tr>
@@ -24,19 +19,21 @@
                         <th>No Rek</th>
                         <th>Nama</th>
                         <th>Kelas</th>
+                        <th>jurusan</th>
                         <th>Telp</th>
                         <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($nasabahs as $nasabah)
+                @forelse($nasabahs as $nasabah)
                     <tr>
                         <td>
                             <a href="{{route('nasabah.formEdit', $nasabah->id)}}"  class="btn btn-outline-success btn-sm">{{$nasabah->kode_nasabah}}</a>
                         </td>
                         <td>{{$nasabah->norek}}</td>
                         <td>{{$nasabah->nama}}</td>
-                        <td>{{$nasabah->kelas}}</td>
+                        <td>{{$nasabah->kelas->kelas}}</td>
+                        <td>{{$nasabah->kelas->jurusan}}</td>
                         <td>{{$nasabah->telp}}</td>
                         <td> 
                         <form action="{{route('nasabah.delete', $nasabah->id)}}" method="post">
@@ -46,9 +43,16 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="8" class="text-center">
+                            Maaf Data Belum Tersedia. <a href="{{route('nasabah.create')}}">Tekan Disini Untuk menambahkan</a> 
+                        </td>
+                    </tr>
+                @endforelse
                 </tbody>
             </table>
+            {{ $nasabahs->links() }}
         </div>
     </div>
 </div>

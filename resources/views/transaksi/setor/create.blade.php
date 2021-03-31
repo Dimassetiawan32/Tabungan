@@ -17,13 +17,7 @@
                             </div>
                         @endif
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="">Kode Transaksi</label>
-                                    <input type="text" name="kode_transaksi" class="form-control" value="{{$getKode}}" id="">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Nama Nasabah</label>
                                     <select name="nasabah_id" id="" class="form-control">
@@ -34,7 +28,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Jumlah Transfer</label>
                                     <input type="number" name="jumlah_transfer" class="form-control" id="">

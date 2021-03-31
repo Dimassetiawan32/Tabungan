@@ -2,49 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Kelas;
 use App\Nasabah;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class NasabahController extends Controller
 {
-    public function __construct()
-    {
-        $this->nasabah = new Nasabah ();
-    }
-
     public function index()
     {
         
-        $nasabahs = Nasabah::all();
-        return view('nasabah.index', compact('nasabahs'));
+        $kelass = Kelas::paginate(3);
+        $nasabahs = Nasabah::paginate(3);
+        return view('nasabah.index', compact('nasabahs','kelass'));
     }
 
     public function create()
     {
-        
-        $getKode = $this->nasabah->generateCode();
-        return view('nasabah.create', compact('getKode'));
+        $kelass = Kelas::all();
+        return view('nasabah.create', compact('kelass'));
     }
 
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'kode_nasabah'  => 'required',
-            'norek'         => 'required',
-            'nama'          => 'required',
-            'kelas'         => 'required',
-            'alamat'        => 'required',
-            'ttl'           => 'required',
-            'jenis_kelamin' => 'required',
-            'telp'          => 'required',
-            'nama_ortu'     => 'required',
-        ]);
-
         $nasabahs = Nasabah::create([
-            'Kode_nasabah'  => $request->kode_nasabah,
             'norek'         => $request->norek,
             'nama'          => $request->nama,
-            'kelas'         => $request->kelas,
+            'kelas_id'      => $request->kelas_id,
             'alamat'        => $request->alamat,
             'ttl'           => $request->ttl,
             'jenis_kelamin' => $request->jenis_kelamin,
@@ -53,12 +37,13 @@ class NasabahController extends Controller
         ]);
 
         $nasabahs->save();
-        return redirect()->back()->with(['success' => 'Nasabah Berhasil Ditambahkan']);
+        toast('Nasabah Berhasil Ditambahkan','success');
+        return redirect('nasabah/index');
     }
 
     public function edit($id)
     {
-       
+        $kelas = Kelas::all();
         $nasabah = Nasabah::findOrFail($id);
         return view('nasabah.edit', compact('nasabah'));
     }
@@ -67,13 +52,15 @@ class NasabahController extends Controller
     {
         $nasabah = Nasabah::find($id);
         $nasabah->update($request->all());
-        return redirect()->back()->with(['success' => 'Nasabah Berhasil Diperbarui']);
+        toast('Nasabah Berhasil Diperbarui','success');
+        return redirect('nasabah/index');
     }
 
     public function destroy($id)
     {
         $nasabah = Nasabah::find($id);
         $nasabah->delete($nasabah->all());
-        return redirect()->back()->with(['success' => 'Nasabah Berhasil DiHapus']);
+        toast('Nasabah Berhasil Dihapus','success');
+        return redirect('nasabah/index');
     }
 }

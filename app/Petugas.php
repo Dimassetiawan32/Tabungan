@@ -2,26 +2,25 @@
 
 namespace App;
 
+use Alfa6661\AutoNumber\AutoNumberTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Petugas extends Model
 {
+    use AutoNumberTrait;
+
     protected $table = 'petugass';
     protected $guarded = [];
 
 
-    public function generatecode()
+    public function getAutoNumberOptions()
     {
-        $_kode       = "P";
-        $kode = Petugas::where('kode_petugas', 'P')->orderBy('kode_petugas');
-        $kode = $kode->count();
-        if($kode == 0){
-        $kode = $_kode."001";
-    }else
-    {
-        $last = $kode+1;
-        $kode = "$_kode".str_pad($last, 3, '0', STR_PAD_LEFT);
+        return [
+            'kode_petugas' => [
+                'format' => 'P0?', // autonumber format. '?' will be replaced with the generated number.
+                'length' => 2 // The number of digits in an autonumber
+            ]
+        ];
     }
-        return $kode;
-    }
+
 }

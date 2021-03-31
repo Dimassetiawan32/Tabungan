@@ -48,7 +48,7 @@ Route::group(['prefix' => 'nasabah'], function(){
 
 Route::group(['prefix' => 'setor'], function(){
     Route::get('index', 'SetorController@index')->name('transaksi.setor.index');
-    Route::get('formSetor', 'SetorController@create')->name('transaksi.setor.formStore');
+    Route::get('formSetor', 'SetorController@create')->name('transaksi.setor.formSetor');
     Route::post('save', 'SetorController@store')->name('transaksi.setor.save');
     Route::get('formEdit/{setor}', 'SetorController@edit')->name('transaksi.setor.formEdit');
     Route::patch('update/{setor}', 'SetorController@update')->name('transaksi.setor.update');

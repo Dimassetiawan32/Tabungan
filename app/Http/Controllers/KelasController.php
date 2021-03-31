@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 use App\Kelas;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KelasController extends Controller
 {
     public function index()
     {
-        $kelass = Kelas::all();
+        $kelass = Kelas::paginate(3);
         return view('kelas.index', compact('kelass'));
     }
 
@@ -36,7 +37,8 @@ class KelasController extends Controller
         ]);
 
         $kelass->save();
-        return redirect()->back()->with(['success' => 'Kelas Berhasil Ditambahkan']);
+        toast('Kelas Berhasil Ditambahkan','success');
+        return redirect('kelas/index');
     }
 
     public function edit($id)
@@ -49,13 +51,15 @@ class KelasController extends Controller
     {
         $kelas = Kelas::find($id);
         $kelas->update($request->all());
-        return redirect()->back()->with(['success' => 'Kelas Berhasil Diperbarui']);
+        toast('Kelas Berhasil Diperbarui','success');
+        return redirect('kelas/index');
     }
 
     public function destroy($id)
     {
         $kelas = Kelas::find($id);
         $kelas->delete($kelas->all());
-        return redirect()->back()->with(['success' => 'Kelas Berhasil DiHapus']);
+        toast('Kelas Berhasil Dihapus','success');
+        return redirect('kelas/index');
     }
 }

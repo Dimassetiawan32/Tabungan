@@ -25,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($kelass as $Kelas)
+                @forelse($kelass as $Kelas)
                     <tr>
                         <td>{{$Kelas->kelas}}</td>
                         <td>{{$Kelas->jurusan}}</td>
@@ -39,9 +39,16 @@
                             </form>
                         </td>
                     </tr>
+                    @empty
+                    <tr>
+                        <td colspan="8" class="text-center">
+                            Maaf Data Belum Tersedia. <a href="{{route('kelas.create')}}">Tekan Disini Untuk menambahkan</a> 
+                        </td>
+                    </tr>
+                @endforelse
                 </tbody>
-                @endforeach
             </table>
+            {{ $kelass->links() }}
         </div>
     </div>
 </div>

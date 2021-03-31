@@ -7,7 +7,8 @@
 <div class="card border-0 shadow">
     <div class="card-body bg-warning">
         <h4 class="font-weight-bold">Welcome !</h4>
-        <h6>Hey Selamat datang di Aplikasi Tabungan Siswa . ada yang bisa kami bantu?</h6>
+        <h6>Hey Selamat datang di Aplikasi Tabungan Siswa
+         . ada yang bisa kami bantu?</h6>
     </div>
 </div>
 <div class="container pt-4">
@@ -19,13 +20,6 @@
 <div class="container">
     <div class="row d-flex pt-4">
     @csrf
-    @if(session('success'))
-    <div class="d-flex justify-content-center">
-        <div class="alert alert-danger">
-            {{ session('success')}}
-        </div>
-    </div>
-    @endif
         <table class="table">
             <thead>
                 <tr>
@@ -36,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($petugass as $petugas)
+                @forelse($petugass as $petugas)
                 <tr>
                     <td>{{$petugas->kode_petugas}}</td>
                     <td>{{$petugas->nama}}</td>
@@ -50,9 +44,16 @@
                         </form>
                     </td>
                 </tr>
+                @empty
+                <tr>
+                    <td colspan="8" class="text-center">
+                        Maaf Data Belum Tersedia. <a href="{{route('home.create')}}">Tekan Disini Untuk menambahkan</a> 
+                    </td>
+                </tr>
+                @endforelse
             </tbody>
-            @endforeach
         </table>
+        {{ $petugass->links() }}
     </div>
 </div>        
 @endsection

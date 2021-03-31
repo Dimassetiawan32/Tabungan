@@ -2,26 +2,24 @@
 
 namespace App;
 
+use Alfa6661\AutoNumber\AutoNumberTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Setor extends Model
 {
+    use AutoNumberTrait;
+
     protected $table = 'setors';
     protected $guarded = [];
     
-    public function generatecode()
+    public function getAutoNumberOptions()
     {
-        $_kode       = "TS ";
-        $kode = Setor::where('kode_transaksi', 'TS ')->orderBy('kode_transaksi');
-        $kode = $kode->count();
-        if($kode == 0){
-        $kode = $_kode."000001";
-    }else
-    {
-        $last = $kode+1;
-        $kode = "$_kode".str_pad($last, 3, '0', STR_PAD_LEFT);
-    }
-        return $kode;
+        return [
+            'kode_transaksi' => [
+                'format' => 'TS 0?', // autonumber format. '?' will be replaced with the generated number.
+                'length' => 3 // The number of digits in an autonumber
+            ]
+        ];
     }
 
     public function nasabah()

@@ -19,12 +19,6 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Kode Nasabah</label>
-                                    <input type="text" name="kode_nasabah" class="form-control" value="{{$getKode}}" id="">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
                                     <label for="">Nomor Rekening</label>
                                     <input type="text" name="norek" class="form-control"  id="">
                                 </div>
@@ -37,8 +31,13 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">kelas</label>
-                                    <input type="text" name="kelas" class="form-control" id="">
+                                    <label for="">Kelas</label>
+                                    <select name="kelas_id" id="" class="form-control">
+                                        <option value="">Pilih Kelas</option>
+                                        @foreach($kelass as $kelas)
+                                            <option value="{{$kelas->id}}">{{$kelas->kelas}} {{$kelas->jurusan}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4">

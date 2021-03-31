@@ -19,12 +19,6 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Kode Petugas</label>
-                                    <input type="text" name="kode_petugas" class="form-control"  value="{{ $getKode }}" id="">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
                                     <label for="">Nama</label>
                                     <input type="text" name="nama" class="form-control" id="">
                                 </div>
