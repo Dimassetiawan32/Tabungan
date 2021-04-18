@@ -39,7 +39,12 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">kelas</label>
-                                    <input type="text" name="kelas" class="form-control" value="{{$nasabah->kelas}}" id="">
+                                    <select name="kelas_id" id="" class="form-control">
+                                        
+                                        @foreach($kelas as $kelas)
+                                            <option value="{{$kelas->id}}">{{$kelas->kelas}} {{$kelas->jurusan}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -58,7 +63,7 @@
                                 <div class="form-group">
                                     <label for="">Gender</label>
                                     <select name="jenis_kelamin" class="form-control" id="">
-                                        <option>Pilih Gender</option>
+                                        <option>{{$nasabah->jenis_kelamin}}</option>
                                         <option>Laki-laki</option>
                                         <option>Perempuan</option>
                                     </select>

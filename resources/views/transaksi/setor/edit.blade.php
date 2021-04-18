@@ -28,7 +28,7 @@
                                 <div class="form-group">
                                     <label for="">Nama Nasabah</label>
                                     <select name="nasabah_id" id="nasabah_id" class="form-control">
-                                        <option value="">Pilih Nasabah</option>
+                                        
                                         @foreach($nasabah as $nasabah)
                                             <option value="{{$nasabah->id}}">{{$nasabah->nama}}</option>
                                         @endforeach

@@ -45,7 +45,7 @@ class NasabahController extends Controller
     {
         $kelas = Kelas::all();
         $nasabah = Nasabah::findOrFail($id);
-        return view('nasabah.edit', compact('nasabah'));
+        return view('nasabah.edit', compact('nasabah', 'kelas'));
     }
 
     public function update(Request $request, $id)
